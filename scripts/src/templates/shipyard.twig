@@ -1,0 +1,25 @@
+{% if actualBoatsCount > 0 %}
+    The brand {{ shipyard }} produces {{ actualBoatCategories }}{% if isHaveSuperyachts %} and is also active in the custom superyacht market{% endif %}.
+    {% if actualBoatsCount == 1 %}
+        There is {{ actualBoatsCount|plural('model', 'models') }} currently in production of {{ actualLoaMax|round(1) }} meters.
+    {% else %}
+        There are {{ actualBoatsCount|plural('model', 'models') }} currently in production ranging from {{ actualLoaMin|floor }} to {{ actualLoaMax|ceil }} meters.
+    {% endif %}
+    {% if actualBoatSeriesCount > 0 %}
+        The current model range includes {{ actualBoatSeriesCount|plural('line', 'lines') }}: {{ actualBoatSeries }}.
+    {% endif %}
+     We invite you to explore all current and older models from {{ shipyard }} and contact us for sales and pricing information.
+{% else %}
+    {% if notActualBoatsCount > 0 %}
+        The brand {{ shipyard }} produced {{ notActualBoatCategories }}.
+        There are no current models in production but you can learn more about the production of the brand in
+        “Discontinued models“ section.
+    {% else %}
+        {% if isHaveSuperyachts %} 
+           {{ shipyard }} produces custom built luxury boats in the superyacht market which are presented here. The shipyard has no current production line models available.
+             {% else %}
+         There is no information about current production lines of the brand {{ shipyard }} in the market. If you are representative of
+        {{ shipyard }} please contact us so we can update the {{ shipyard }} page.
+        {% endif %}
+    {% endif %}
+{% endif %}

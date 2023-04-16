@@ -1,9 +1,6 @@
 # compiled output
-dist
-build
-node_modules
-dist-ssr
-*.local
+/dist
+/node_modules
 
 # Logs
 logs
@@ -36,12 +33,3 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# Editor directories and files
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-.env

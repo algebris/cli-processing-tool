@@ -1,0 +1,5 @@
+packages:
+  - 'chatbot-ui'
+  - 'chatbot-api'
+  - 'scripts'
+  - 'packages/shared-db'

@@ -1,0 +1,13 @@
+{
+  "name": "itboat-chatbot",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start:ui": "cd chatbot-ui && pnpm dev",
+    "start:api": "cd chatbot-api && pnpm start:dev",
+    "start:script": "cd scripts && pnpm start:dev"
+  },
+  "dependencies": {
+    "typeorm": "^0.3.14"
+  }
+}

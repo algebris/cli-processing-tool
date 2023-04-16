@@ -1,0 +1,31 @@
+{
+  "name": "shared-db",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "npx ts-node ./src/index.ts",
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint 'src/**/*.{js,ts}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "typeorm": "^0.3.14"
+  }
+}

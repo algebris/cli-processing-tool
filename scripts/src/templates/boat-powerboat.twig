@@ -1,0 +1,58 @@
+{% if isActualBoat %}
+    The {{ boat }} powerboat
+    {% if isPlanning %} will be produced{% else %} is produced{% endif %}
+    by the brand {{ shipyard }}
+{% else %}
+    The {{ boat }} powerboat was produced by the brand {{ shipyard }}
+{% endif %}
+{% if yearFrom %}
+    since {{ yearFrom }}
+{% endif %}
+{% if not isActualBoat and yearTo %}
+    {% if yearFrom %}to{% else %}until{% endif %}
+    {{ yearTo }}
+{% endif %}
+.
+
+The {{ boat }} is a {{ loa }} meters {{ category }}
+{% if cabinsCount or guestsCount or draft %}
+    with
+    {% if cabinsCount %}
+        {{ cabinsCount|plural('guest cabin', 'guest cabins') }}
+    {% elseif guestsCount %}
+        accommodation for
+        {% if guestsCount == 1 %}
+            one person
+        {% else %}
+            {{ guestsCount }} people
+        {% endif %}
+    {% endif %}
+    {% if draft %}
+        {% if cabinsCount or guestsCount %} and a {% else %} a {% endif %}
+        draft of {{ draft }} meters
+    {% endif %}
+{% endif %}
+{% if maxSpeed %}
+    which can reach speeds of up to {{ maxSpeed }} knots
+{% elseif cruiseSpeed %}
+    which can cruise at {{ cruiseSpeed }} knots
+{% endif %}
+.
+
+{% if ceCertificate %}
+    The boat with a CE certification class ({{ ceCertificate }}) and can navigate
+    {% if ceCertificate == 'A' %}
+        the open ocean
+    {% elseif ceCertificate == 'B' %}
+        no further than 200 miles off the coastline
+    {% elseif ceCertificate == 'C' %}
+        along the coastline and on rivers and canals
+    {% elseif ceCertificate == 'D' %}
+        in protected waters
+    {% endif %}
+    .
+{% endif %}
+
+{% if isActualBoat and price %}
+    The base price of a new {{ boat }} is {{ price }}.
+{% endif %}
