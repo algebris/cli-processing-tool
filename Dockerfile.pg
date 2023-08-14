@@ -1,0 +1,18 @@
+FROM postgres:latest
+
+# Install required dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    postgresql-contrib \
+    git \
+    build-essential \
+    ca-certificates \
+    postgresql-server-dev-15 \
+    libpq-dev
+
+# Install pgvector extension    
+RUN git clone https://github.com/ankane/pgvector.git && cd pgvector && make && make install
+RUN echo "CREATE EXTENSION IF NOT EXISTS vector;" > /docker-entrypoint-initdb.d/pgvector.sql
+
+EXPOSE 5432
+
+CMD ["postgres"]

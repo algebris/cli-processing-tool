@@ -1,2 +1,2 @@
-export * from './shipyard.entity';
-export * from './user.entity';
+export * from './DatabaseEmbedding.entity';
+export * from './DocumentEmbedding.entity';

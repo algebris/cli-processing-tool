@@ -5,7 +5,8 @@
   "scripts": {
     "start:ui": "cd chatbot-ui && pnpm dev",
     "start:api": "cd chatbot-api && pnpm start:dev",
-    "start:script": "cd scripts && pnpm start:dev"
+    "start:script": "cd scripts && pnpm start:dev",
+    "start:mvp": "cd mvp && npm run start"
   },
   "dependencies": {
     "typeorm": "^0.3.14"

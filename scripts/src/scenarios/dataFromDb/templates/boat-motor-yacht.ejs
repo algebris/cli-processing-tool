@@ -1,0 +1,66 @@
+<% if (isActualBoat) { %>
+  The <%= boat %> motor yacht
+  <% if (isPlanning) { %> will be produced<% } else { %> is produced <% } %>
+  by the brand <%= shipyard %>
+<% } else { %>
+  The motor yacht <%= boat %> was produced by the brand <%= shipyard %>
+<% } %>
+  
+<% if (isActualBoat) { %>
+  <% if (yearFrom) { %>
+    since <%= yearFrom %>
+  <% } %>
+<% } else { %>
+  <% if (yearFrom) { %>
+    from <%= yearFrom %>
+  <% } %>
+<% } %>
+
+<% if (!isActualBoat && yearTo) { %>
+  <% if (yearFrom) { %>to<% } else { %>until<% } %>
+    <%= yearTo %>
+<% } %>.
+
+The <%= boat %> is a <%= loa %> meter <%= category %>
+<% if (cabinsCount || guestsCount || draft) { %>
+    with
+  <% if (cabinsCount) { %>
+    <%= cabinsCount + (cabinsCount == 1 ? ' guest cabin' : ' guest cabins') %>
+  <% } else if (guestsCount) { %>
+    accommodation for
+    <% if (guestsCount == 1) { %>
+    one person
+    <% } else { %>
+    <%= guestsCount %> guests
+    <% } %>
+  <% } %>
+  <% if (draft) { %>
+    <% if (cabinsCount || guestsCount) { %> and a <% } else { %> a <% } %>
+    draft of <%= draft %> meters
+  <% } %>
+<% } %>
+
+<% if (maxSpeed) { %>
+  which can reach speeds of up to <%= maxSpeed %> knots
+<% } else if (cruiseSpeed) { %>
+  which can cruise at <%= cruiseSpeed %> knots
+<% } %>.
+
+<% if (ceCertificate) { %>
+  The yacht with a CE certification class (<%= ceCertificate %>) and can navigate
+  <% if (ceCertificate == 'A') { %>
+    the open ocean
+  <% } else if (ceCertificate == 'B') { %>
+    no further than 200 miles offshore
+  <% } else if (ceCertificate == 'C') { %>
+    along the coastline, on rivers and canals
+  <% } else if (ceCertificate == 'D') { %>
+    in protected waters
+  <% } %>
+  .
+<% } %>
+
+<% if (isActualBoat && price) { %>
+The base price of a new <%= boat %> is <%= price %>.
+<% } %>
+  

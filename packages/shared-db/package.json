@@ -7,13 +7,19 @@
   "scripts": {
     "start": "npx ts-node ./src/index.ts",
     "build": "rimraf ./dist && tsc",
-    "lint": "eslint 'src/**/*.{js,ts}'"
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:create": "npm run typeorm -- migration:create -d ./src/index.ts",
+    "migration:run": "npm run typeorm -- migration:run -d ./src/index.ts",
+    "migration:revert": "npm run typeorm -- migration:revert -d ./src/index.ts",
+    "schema:drop": "npm run typeorm -- schema:drop -d ./src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {

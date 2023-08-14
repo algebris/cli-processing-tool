@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.pg
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrespw
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    command: npm run start:mvp
+    ports:
+      - 3000:3000
+    environment:
+      - PGHOST=db # Should be set to db
+      - PGUSER=
+      - PGPASSWORD=
+      - PGDATABASE=
+      - OPENAI_API_KEY=
+      - PROD_DB_HOST=
+      - PROD_DB_PORT=
+      - PROD_DB_USERNAME=
+      - PROD_DB_PASSWORD=
+      - PROD_DB_NAME=
+    depends_on:
+      - db

@@ -4,6 +4,7 @@ build
 node_modules
 dist-ssr
 *.local
+.eslintcache
 
 # Logs
 logs
@@ -20,6 +21,10 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
+scripts/files/*.???
+scripts/files/*.????
+docker-compose-test.yml
+id_rsa
 
 # IDEs and editors
 /.idea
@@ -44,4 +49,4 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-.env
+.env*

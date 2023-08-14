@@ -1,4 +1,5 @@
 packages:
+  - 'mvp'
   - 'chatbot-ui'
   - 'chatbot-api'
   - 'scripts'
